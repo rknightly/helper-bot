@@ -1,9 +1,6 @@
-Open pandora
-open gmail
 open coding directory
-open google drive
-open chess.com
-open duolingoi
+open quora
+open duolingo
 
 set up a work mode- with pandora, google drive, and google
 
