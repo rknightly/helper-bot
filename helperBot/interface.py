@@ -1,13 +1,18 @@
-from commandManager import CommandManager
+import commandManager
 
-class Interface:
-    def run():
-        manager = CommandManager()
+def run():
+        manager = commandManager.CommandManager()
         
         print("Hello, I am HelperBot, your personal helping robot.")
         print("How may I help you?")
 
-        while command != "q":
+        running = True
+        while running:
             command = input()
+
+            if command == "q":
+                running = False
+                break
+
             manager.manageCommand(command)
 
