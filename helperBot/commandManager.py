@@ -11,11 +11,14 @@ class CommandManager:
         "python": python, "terminal": terminal}
 
     def manageCommand(self, commandName):
-        self.command_actions[commandName]()
-        print("EZ mon$y! What else can I do for you?")
-
+        if commandName in self.command_actions.keys():
+            self.command_actions[commandName]()
+            print("EZ mon$y! What else can I do for you?")
+        else:
+            print("I don't know how to do that yet, sorry. Type 'commands' for a list of commands")
     def list_commands(self):
-        commands = [command for command in self.command_actions.keys]
+        commands = [command for command in self.command_actions.keys()]
+        commands = sort(commands)
         print(str(commands))
 
 
