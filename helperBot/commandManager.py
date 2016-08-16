@@ -16,6 +16,7 @@ class CommandManager:
             print("EZ mon$y! What else can I do for you?")
         else:
             print("I don't know how to do that yet, sorry. Type 'commands' for a list of commands")
+    
     def list_commands(self):
         commands = [command for command in self.command_actions.keys()]
         commands = sort(commands)
