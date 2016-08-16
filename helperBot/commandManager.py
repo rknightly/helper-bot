@@ -1,10 +1,14 @@
 import webbrowser
+import os
+import sys
+import subprocess 
 
 class CommandManager:
     def __init__(self):
-        self.command_actions = {"pandora": pandora, 
-        "gmail": gmail, "drive": drive, "chess": chess,
-        "google": google, "setup": setup}
+        self.command_actions = {"commands": self.list_commands,
+        "pandora": pandora, "gmail": gmail, "drive": drive,
+        "chess": chess, "google": google, "setup": setup,
+        "python": python, "terminal": terminal}
 
     def manageCommand(self, commandName):
         self.command_actions[commandName]()
@@ -15,6 +19,7 @@ class CommandManager:
         print(str(commands))
 
 
+# Internet stuff
 def open_website(url):
     protocol = 'http://'
     full_url = protocol + url
@@ -39,4 +44,12 @@ def setup():
     drive()
     google()
     pandora()
+
+
+# Programming stuff
+def python():
+    subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/Google\ Drive/Software/Python'])
+
+def terminal():
+    subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/'])
 
