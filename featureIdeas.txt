@@ -1,7 +1,3 @@
-open coding directory
-open quora
-open duolingo
+change 'q' to a function in the list. Maybe q and quit both work.
 
-set up a work mode- with pandora, google drive, and google
-
-check internet connection- show signal strength if possible
+have page with personalized values, such as the path to my python folder

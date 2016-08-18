@@ -8,7 +8,8 @@ class CommandManager:
         self.command_actions = {"commands": self.list_commands,
         "pandora": pandora, "gmail": gmail, "drive": drive,
         "chess": chess, "google": google, "setup": setup,
-        "python": python, "terminal": terminal}
+        "quora": quora, "duolingo": duolingo, "python": python, 
+        "terminal": terminal, "same terminal": same_terminal}
 
     def manageCommand(self, commandName):
         if commandName in self.command_actions.keys():
@@ -19,7 +20,7 @@ class CommandManager:
     
     def list_commands(self):
         commands = [command for command in self.command_actions.keys()]
-        commands = sort(commands)
+        commands = sorted(commands)
         print(str(commands))
 
 
@@ -44,6 +45,12 @@ def chess():
 def google():
     open_website("google.com")
 
+def quora():
+    open_website("quora.com")
+
+def duolingo():
+    open_website("duolingo")
+
 def setup():
     drive()
     google()
@@ -57,3 +64,5 @@ def python():
 def terminal():
     subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/'])
 
+def same_terminal():
+    subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ./'])
