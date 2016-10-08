@@ -2,7 +2,7 @@ import commandManager
 
 def run():
         manager = commandManager.CommandManager()
-        
+
         print("Hello, I am HelperBot, your personal helping robot.")
         print("How may I help you?")
 
@@ -15,4 +15,3 @@ def run():
                 break
 
             manager.manageCommand(command)
-
