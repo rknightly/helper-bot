@@ -1,3 +1,5 @@
+import webbrowser
+
 # Helper functions
 def open_website(url):
     protocol = 'http://'

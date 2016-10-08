@@ -1,3 +1,5 @@
+import subprocess
+
 def python():
     subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/Google\ Drive/Software/Python'])
 
