@@ -32,3 +32,6 @@ def setup():
     drive()
     google()
     pandora()
+
+def spanish_textbook():
+    open_website("pearsonsuccessnet.com")
