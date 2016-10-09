@@ -6,7 +6,7 @@ import re
 from Action import Action
 
 class Python(Action):
-    aliases = ["Python"]
+    aliases = ["python"]
 
     @staticmethod
     def do_action():

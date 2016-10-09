@@ -70,7 +70,7 @@ class Setup():
         Pandora.do_action()
 
 class SpanishtTextbook():
-    aliases = ["SpanishtTextbook"]
+    aliases = ["spanish textbook"]
 
     @staticmethod
     def do_action():
