@@ -38,7 +38,7 @@ class SpanishWarmup():
         warmup_file_names = [file for file in os.listdir(path_to_warmups) if "~" not in file.lower()]
 
         # get dates from each file name
-        pattern = r'(\d+-\d)'
+        pattern = r'(\d{1,2}-\d{1,2})'
         dates = [re.search(pattern, file_name).group(1) for file_name in warmup_file_names]
 
         # turn dates into mm-dd format for easy sort
