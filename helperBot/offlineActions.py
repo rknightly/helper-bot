@@ -34,8 +34,8 @@ class SpanishWarmup():
     def do_action():
         path_to_warmups = "../../Classes/Spanish/WarmUps/"
 
-        # ignore ~$ightly.docx file by checking for 'knightly'
-        warmup_file_names = [file for file in os.listdir(path_to_warmups) if "knightly" in file.lower()]
+        # ignore files with ~$file_name.docx
+        warmup_file_names = [file for file in os.listdir(path_to_warmups) if "~" not in file.lower()]
 
         # get dates from each file name
         pattern = r'(\d+-\d)'
