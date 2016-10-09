@@ -1,8 +1,13 @@
 import offlineActions
 import onlineActions
+from Action import Action
 
-def spanish():
-    onlineActions.spanish_textbook()
+class Spanish(Action):
+    aliases = ["spanish", "esp"]
 
-    offlineActions.spanish_powerpoint()
-    offlineActions.spanish_warmup()    # Call last so that it is in the front
+    @staticmethod
+    def do_action():
+        onlineActions.spanish_textbook()
+
+        offlineActions.spanish_powerpoint()
+        offlineActions.spanish_warmup()    # Call last so that it is in the front

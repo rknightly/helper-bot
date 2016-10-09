@@ -1,37 +1,77 @@
 import webbrowser
 
-# Helper functions
-def open_website(url):
-    protocol = 'http://'
-    full_url = protocol + url
-    webbrowser.open_new(full_url)
+from Action import Action
+
+class WebAction(Action):
+    @staticmethod
+    def open_website(url):
+        protocol = 'http://'
+        full_url = protocol + url
+        webbrowser.open_new(full_url)
 
 # Command Actions
-def pandora():
-    open_website("pandora.com")
+class Pandora(WebAction):
+    aliases = ["pandora"]
 
-def gmail():
-    open_website("mail.google.com")
+    @staticmethod
+    def do_action():
+        WebAction.open_website("pandora.com")
 
-def drive():
-    open_website("drive.google.com")
 
-def chess():
-    open_website("chess.com")
+class Gmail(WebAction):
+    aliases = ["gmail"]
 
-def google():
-    open_website("google.com")
+    @staticmethod
+    def do_action():
+        WebAction.open_website("mail.google.com")
 
-def quora():
-    open_website("quora.com")
+class Drive(WebAction):
+    aliases = ["drive"]
 
-def duolingo():
-    open_website("duolingo")
+    @staticmethod
+    def do_action():
+        WebAction.open_website("drive.google.com")
 
-def setup():
-    drive()
-    google()
-    pandora()
+class Chess(WebAction):
+    aliases = ["chess"]
 
-def spanish_textbook():
-    open_website("pearsonsuccessnet.com")
+    @staticmethod
+    def do_action():
+        WebAction.open_website("chess.com")
+
+class Google():
+    aliases = ["google"]
+
+    @staticmethod
+    def do_action():
+        WebAction.open_website("google.com")
+
+class Quora():
+    aliases = ["quora"]
+
+    @staticmethod
+    def do_action():
+        WebAction.open_website("quora.com")
+
+class Duolingo():
+    aliases = ["duolingo"]
+
+    @staticmethod
+    def do_action():
+        WebAction.open_website("duolingo")
+
+class Setup():
+    aliases = ["setup"]
+
+    @staticmethod
+    def do_action():
+        Drive.do_action()
+        Google.do_action()
+        Pandora.do_action()
+
+class SpanishtTextbook():
+    aliases = ["SpanishtTextbook"]
+
+    @staticmethod
+    def do_action():
+        WebAction.open_website("pearsonsuccessnet.com")

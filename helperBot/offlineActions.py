@@ -3,47 +3,70 @@ import os
 import glob
 import re
 
-def python():
-    subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/Google\ Drive/Software/Python'])
+from Action import Action
 
-def terminal():
-    subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/'])
+class Python(Action):
+    aliases = ["Python"]
 
-def same_terminal():
-    subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ./'])
+    @staticmethod
+    def do_action():
+        subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/Google\ Drive/Software/Python'])
 
-def spanish_warmup():
-    path_to_warmups = "../../Classes/Spanish/WarmUps/"
+class Terminal():
+    aliases = ["terminal"]
 
-    # ignore ~$ightly.docx file by checking for 'knightly'
-    warmup_file_names = [file for file in os.listdir(path_to_warmups) if "knightly" in file.lower()]
+    @staticmethod
+    def do_action():
+        subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/'])
 
-    # get dates from each file name
-    pattern = r'(\d+-\d)'
-    dates = [re.search(pattern, file_name).group(1) for file_name in warmup_file_names]
+class SameTerminal():
+    aliases = ["same terminal"]
 
-    # turn dates into mm-dd format for easy sort
-    formatted_dates = []
-    for date in dates:
-        date_values = date.split('-')
-        formatted_date = date_values[0].zfill(2)+ '-' + date_values[1].zfill(2)  # Add leading zeroes to two places
-        formatted_dates.append(formatted_date)
+    @staticmethod
+    def do_action():
+        """Open a terminal in the same directory as the current one"""
+        subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ./'])
 
-    # sort dates, find most recent date
-    formatted_most_recent_date = sorted(formatted_dates)[-1]
-    # remove traling zeroes from most recent date
-    most_recent_date_values = [date_value.lstrip("0") for date_value in formatted_most_recent_date.split("-")]
-    most_recent_date = most_recent_date_values[0] + "-" + most_recent_date_values[1]
+class SpanishWarmup():
+    aliases = ["spanish warmup"]
 
-    # get name of file the contains the date
-    for file_name in warmup_file_names:
-        if most_recent_date in file_name:
-            current_warmup_file = file_name
-            break
+    @staticmethod
+    def do_action():
+        path_to_warmups = "../../Classes/Spanish/WarmUps/"
 
-    # open file
-    os.system("start "+ path_to_warmups + current_warmup_file)
+        # ignore ~$ightly.docx file by checking for 'knightly'
+        warmup_file_names = [file for file in os.listdir(path_to_warmups) if "knightly" in file.lower()]
 
-def spanish_powerpoint():
-    powerpoint_path = "../../Classes/Spanish/actividadDelDia.pptx"
-    os.system("start " + powerpoint_path)
+        # get dates from each file name
+        pattern = r'(\d+-\d)'
+        dates = [re.search(pattern, file_name).group(1) for file_name in warmup_file_names]
+
+        # turn dates into mm-dd format for easy sort
+        formatted_dates = []
+        for date in dates:
+            date_values = date.split('-')
+            formatted_date = date_values[0].zfill(2)+ '-' + date_values[1].zfill(2)  # Add leading zeroes to two places
+            formatted_dates.append(formatted_date)
+
+        # sort dates, find most recent date
+        formatted_most_recent_date = sorted(formatted_dates)[-1]
+        # remove traling zeroes from most recent date
+        most_recent_date_values = [date_value.lstrip("0") for date_value in formatted_most_recent_date.split("-")]
+        most_recent_date = most_recent_date_values[0] + "-" + most_recent_date_values[1]
+
+        # get name of file the contains the date
+        for file_name in warmup_file_names:
+            if most_recent_date in file_name:
+                current_warmup_file = file_name
+                break
+
+        # open file
+        os.system("start "+ path_to_warmups + current_warmup_file)
+
+class SpanishPowerpoint():
+    aliases = ["spanish ppt"]
+
+    @staticmethod
+    def do_action():
+        powerpoint_path = "../../Classes/Spanish/actividadDelDia.pptx"
+        os.system("start " + powerpoint_path)
