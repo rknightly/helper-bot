@@ -69,7 +69,7 @@ class Setup():
         Google.do_action()
         Pandora.do_action()
 
-class SpanishtTextbook():
+class SpanishTextbook():
     aliases = ["spanish textbook"]
 
     @staticmethod

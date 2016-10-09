@@ -7,7 +7,7 @@ class Spanish(Action):
 
     @staticmethod
     def do_action():
-        onlineActions.spanish_textbook()
+        onlineActions.SpanishTextbook.do_action()
 
-        offlineActions.spanish_powerpoint()
-        offlineActions.spanish_warmup()    # Call last so that it is in the front
+        offlineActions.SpanishPowerpoint.do_action()
+        offlineActions.SpanishWarmup.do_action()    # Call last so that it is in the front

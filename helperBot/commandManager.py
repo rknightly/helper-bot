@@ -10,7 +10,7 @@ class CommandManager:
         self.general_actions = [ListCommands]
 
         self.online_actions = [Pandora, Gmail, Drive, Chess, Google, Quora, Duolingo,
-                          Setup, SpanishtTextbook]
+                          Setup, SpanishTextbook]
 
         self.offline_actions = [Python, Terminal, SameTerminal, SpanishWarmup]
 
