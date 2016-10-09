@@ -1,6 +1,6 @@
 import offlineActions
 import onlineActions
-from Action import Action
+from action import Action
 
 class Spanish(Action):
     aliases = ["spanish", "esp"]

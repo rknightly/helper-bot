@@ -3,7 +3,7 @@ import os
 import glob
 import re
 
-from Action import Action
+from action import Action
 
 class Python(Action):
     aliases = ["python"]

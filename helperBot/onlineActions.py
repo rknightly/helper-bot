@@ -1,6 +1,6 @@
 import webbrowser
 
-from Action import Action
+from action import Action
 
 class WebAction(Action):
     @staticmethod
