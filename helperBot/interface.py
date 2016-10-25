@@ -1,5 +1,6 @@
 import commandManager
 
+
 def run():
         manager = commandManager.CommandManager()
 

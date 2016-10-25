@@ -9,16 +9,15 @@ class CommandManager:
     def __init__(self):
         self.general_actions = [ListCommands]
 
-        self.online_actions = [Pandora, Gmail, Drive, Chess, Google, Quora, Duolingo,
-                          Setup, SpanishTextbook]
+        self.online_actions = [Pandora, Gmail, Drive, Chess, Google, Quora,
+                               Duolingo, Setup, SpanishTextbook]
 
         self.offline_actions = [Python, Terminal, SameTerminal, SpanishWarmup]
 
         self.mixed_actions = [Spanish]
 
-
         self.actions = self.general_actions + self.online_actions +\
-                       self.offline_actions + self.mixed_actions
+            self.offline_actions + self.mixed_actions
 
     def manageCommand(self, command_name):
         """Run the command if it exists"""
@@ -56,7 +55,7 @@ class CommandManager:
     def list_commands(self):
         print('\n\n')   # Create some space to make it look better
 
-        #Find appropriate padding based on action name lengths
+        # Find appropriate padding based on action name lengths
         longest_action_name = 0
         for action in self.actions:
             action_name = action.__name__
@@ -67,26 +66,29 @@ class CommandManager:
 
         formatting_string = '%-' + str(padding) + 's %-' + str(padding) + 's'
 
-
         print(formatting_string % ("ACTIONS", "COMMANDS (case insensitive)"))
 
         self.print_header("Online Actions")
         for action in self.online_actions:
-            actions_string = ', '.join('"' + alias + '"' for alias in action.aliases)
+            actions_string = ', '.join('"' + alias + '"'
+                                       for alias in action.aliases)
             print(formatting_string % (action.__name__, actions_string))
         print()
 
         self.print_header("Offline Actions")
         for action in self.offline_actions:
-            actions_string = ', '.join('"' + alias + '"' for alias in action.aliases)
+            actions_string = ', '.join('"' + alias + '"'
+                                       for alias in action.aliases)
             print(formatting_string % (action.__name__, actions_string))
         print()
 
         self.print_header("Mixed Actions")
         for action in self.mixed_actions:
-            actions_string = ', '.join('"' + alias + '"' for alias in action.aliases)
+            actions_string = ', '.join('"' + alias + '"'
+                                       for alias in action.aliases)
             print(formatting_string % (action.__name__, actions_string))
         print()
+
 
 # Included list commands class because it references CommandManager
 class ListCommands(Action):

@@ -2,12 +2,14 @@ import webbrowser
 
 from action import Action
 
+
 class WebAction(Action):
     @staticmethod
     def open_website(url):
         protocol = 'http://'
         full_url = protocol + url
         webbrowser.open_new(full_url)
+
 
 # Command Actions
 class Pandora(WebAction):
@@ -25,12 +27,14 @@ class Gmail(WebAction):
     def do_action():
         WebAction.open_website("mail.google.com")
 
+
 class Drive(WebAction):
     aliases = ["drive"]
 
     @staticmethod
     def do_action():
         WebAction.open_website("drive.google.com")
+
 
 class Chess(WebAction):
     aliases = ["chess"]
@@ -39,12 +43,14 @@ class Chess(WebAction):
     def do_action():
         WebAction.open_website("chess.com")
 
+
 class Google():
     aliases = ["google"]
 
     @staticmethod
     def do_action():
         WebAction.open_website("google.com")
+
 
 class Quora():
     aliases = ["quora"]
@@ -53,12 +59,14 @@ class Quora():
     def do_action():
         WebAction.open_website("quora.com")
 
+
 class Duolingo():
     aliases = ["duolingo"]
 
     @staticmethod
     def do_action():
         WebAction.open_website("duolingo")
+
 
 class Setup():
     aliases = ["setup"]
@@ -68,6 +76,7 @@ class Setup():
         Drive.do_action()
         Google.do_action()
         Pandora.do_action()
+
 
 class SpanishTextbook():
     aliases = ["spanish textbook"]
