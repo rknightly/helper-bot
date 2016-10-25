@@ -17,8 +17,8 @@ class Search(WebAction):
     @staticmethod
     def do_action():
         print("Alright! What would you like me to search?")
-        search_phrase = input("Search ->")
-        url = "google.com.tr/search?q={}".format(search_phrase)
+        search_phrase = input("Search: ")
+        url = "google.com.tr/search?q=" + search_phrase
 
         WebAction.open_website(url)
 
