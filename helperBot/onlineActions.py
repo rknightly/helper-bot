@@ -11,7 +11,18 @@ class WebAction(Action):
         webbrowser.open_new(full_url)
 
 
-# Command Actions
+class Search(WebAction):
+    aliases = ["search", "look up", "lookup"]
+
+    @staticmethod
+    def do_action():
+        print("Alright! What would you like me to search?")
+        search_phrase = input("Search ->")
+        url = "google.com.tr/search?q={}".format(search_phrase)
+
+        WebAction.open_website(url)
+
+
 class Pandora(WebAction):
     aliases = ["pandora"]
 

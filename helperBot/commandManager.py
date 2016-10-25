@@ -9,8 +9,8 @@ class CommandManager:
     def __init__(self):
         self.general_actions = [ListCommands]
 
-        self.online_actions = [Pandora, Gmail, Drive, Chess, Google, Quora,
-                               Duolingo, Setup, SpanishTextbook]
+        self.online_actions = [Search, Pandora, Gmail, Drive, Chess, Google,
+                               Quora, Duolingo, Setup, SpanishTextbook]
 
         self.offline_actions = [Python, Terminal, SameTerminal, SpanishWarmup]
 
