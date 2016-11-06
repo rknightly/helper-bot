@@ -14,13 +14,20 @@ class WebAction(Action):
 class Search(WebAction):
     aliases = ["search", "look up", "lookup"]
 
-    def do_action(self):
-        self.interface.output("Alright! What would you like me to search?")
-        search_phrase = input("Search: ")
+    def input_action(self, input_phrase):
+        search_phrase = input_phrase
         url = "google.com.tr/search?q=" + search_phrase
 
         WebAction.open_website(url)
 
+        self.action_finished()
+
+    def do_action(self):
+        self.interface.output("Alright! What would you like me to search?")
+        search_phrase = self.queue_input("Search: ")
+
+    def action_sequence(self):
+        self.do_action()  # Waits for input to print ez mon$y
 
 class Pandora(WebAction):
     aliases = ["pandora"]

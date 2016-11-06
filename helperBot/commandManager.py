@@ -29,14 +29,13 @@ class CommandManager:
         for action in self.actions:
             action.set_interface(self.interface)
 
-    def manageCommand(self, command_name):
+    def manage_command(self, command_name):
         """Run the command if it exists"""
         # Ignore case of input
         command_name = command_name.lower()
 
         if self.is_command(command_name):
             self.run_command_action(command_name)
-            self.interface.output("EZ mon$y! What else can I do for you?")
 
         else:
             self.interface.output("I don't know how to do that yet, sorry. "
@@ -56,7 +55,7 @@ class CommandManager:
         """Run the action associated with a command"""
         for action in self.actions:
             if command_name in action.aliases:
-                action.do_action()
+                action.action_sequence()
                 break
 
     def print_header(self, header):

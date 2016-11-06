@@ -6,12 +6,20 @@ class Interface:
         self.manager = commandManager.CommandManager()
         self.manager.set_interface(self)
 
+        self.set_to_default_command_handler()
+
         self.root = Tk()
         self.text_box = Text(self.root, height=25, width=80)
 
         self.input_box = Entry(self.root, width=30)
 
         self.makeGui()
+
+    def set_to_default_command_handler(self):
+        self.set_command_handler(self.manager.manage_command)
+
+    def set_command_handler(self, command_handler):
+        self.command_handler = command_handler
 
     def key(self, event):
         if event.char == "\r":
@@ -20,7 +28,8 @@ class Interface:
 
             self.output(command)
 
-            self.manager.manageCommand(command)
+            self.command_handler(command)
+            # self.manager.manageCommand(command)
 
     def makeGui(self):
         self.text_box.config(state=DISABLED)  # Make it read only
@@ -34,10 +43,13 @@ class Interface:
 
         mainloop()
 
-    def output(self, text=""):
+    def output_in_line(self, text):
         self.text_box.config(state=NORMAL) # Allow output
 
-        self.text_box.insert(END, text + '\n')
+        self.text_box.insert(END, text)
         self.text_box.see(END)
 
         self.text_box.config(state=DISABLED)  # Make it read only
+
+    def output(self, text=""):
+        self.output_in_line(text + '\n')
