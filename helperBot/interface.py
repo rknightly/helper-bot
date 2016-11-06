@@ -9,6 +9,7 @@ class Interface:
         self.set_to_default_command_handler()
 
         self.root = Tk()
+
         self.text_box = Text(self.root, height=25, width=80)
 
         self.input_box = Entry(self.root, width=30)
@@ -26,30 +27,44 @@ class Interface:
             command = self.input_box.get()
             self.input_box.delete(0, END)
 
-            self.output(command)
+            self.output(command, 'human_text')
 
             self.command_handler(command)
-            # self.manager.manageCommand(command)
 
     def makeGui(self):
-        self.text_box.config(state=DISABLED)  # Make it read only
+        background_color = '#003333'
+        inpurt_box_color = '#008888'
+
+        self.root.configure(background=background_color)
+        self.root.configure(highlightbackground=background_color)
+
+        self.text_box.configure(state=DISABLED)  # Make it read only
+        self.text_box.configure(background=background_color)
+        self.text_box.configure(highlightbackground=background_color)
+        self.text_box.configure(foreground='#ffffff')
+
+        self.text_box.tag_configure('bot_text', font=('Arial', 14))
+        self.text_box.tag_configure('human_text', font=('Arial', 14, 'italic'))
+
         self.text_box.pack()
 
         self.output("Hello, I am HelperBot, your personal helping robot.")
         self.output("How may I help you?")
 
         self.input_box.bind("<Key>", self.key)
+        self.input_box.config(background=inpurt_box_color)
+        self.input_box.configure(highlightbackground=background_color)
         self.input_box.pack(side=BOTTOM)
 
         mainloop()
 
-    def output_in_line(self, text):
+    def output_in_line(self, text, tag='bot_text'):
         self.text_box.config(state=NORMAL) # Allow output
 
-        self.text_box.insert(END, text)
+        self.text_box.insert(END, text, tag)
         self.text_box.see(END)
 
         self.text_box.config(state=DISABLED)  # Make it read only
 
-    def output(self, text=""):
-        self.output_in_line(text + '\n')
+    def output(self, text="", tag='bot_text'):
+        self.output_in_line(text + '\n', tag)
