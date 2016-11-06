@@ -9,6 +9,7 @@ class Interface:
         self.set_to_default_command_handler()
 
         self.root = Tk()
+        self.root.wm_title('Helper Bot')
 
         self.text_box = Text(self.root, height=25, width=80)
 
@@ -42,9 +43,13 @@ class Interface:
         self.text_box.configure(background=background_color)
         self.text_box.configure(highlightbackground=background_color)
         self.text_box.configure(foreground='#ffffff')
+        self.text_box.configure(padx=15, pady=5)
 
-        self.text_box.tag_configure('bot_text', font=('Arial', 14))
-        self.text_box.tag_configure('human_text', font=('Arial', 14, 'italic'))
+        self.text_box.tag_configure('bot_text', font=('Arial', 14),
+                                    spacing1=5)
+        self.text_box.tag_configure('human_text', font=('Arial', 14,
+                                    'italic'), spacing1=5)
+
 
         self.text_box.pack()
 
