@@ -14,9 +14,8 @@ class WebAction(Action):
 class Search(WebAction):
     aliases = ["search", "look up", "lookup"]
 
-    @staticmethod
-    def do_action():
-        print("Alright! What would you like me to search?")
+    def do_action(self):
+        self.interface.output("Alright! What would you like me to search?")
         search_phrase = input("Search: ")
         url = "google.com.tr/search?q=" + search_phrase
 
