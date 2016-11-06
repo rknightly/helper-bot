@@ -15,7 +15,7 @@ class Python(Action):
                           'open -a terminal ~/Google\ Drive/Software/Python'])
 
 
-class Terminal():
+class Terminal(Action):
     aliases = ["terminal"]
 
     @staticmethod
@@ -23,7 +23,7 @@ class Terminal():
         subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ~/'])
 
 
-class SameTerminal():
+class SameTerminal(Action):
     aliases = ["same terminal"]
 
     @staticmethod
@@ -32,7 +32,7 @@ class SameTerminal():
         subprocess.Popen(['/bin/sh', '-c', 'open -a terminal ./'])
 
 
-class SpanishWarmup():
+class SpanishWarmup(Action):
     aliases = ["spanish warmup"]
 
     @staticmethod
