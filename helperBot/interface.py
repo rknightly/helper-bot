@@ -11,7 +11,7 @@ class Interface:
         self.root = Tk()
         self.root.wm_title('Helper Bot')
 
-        self.text_box = Text(self.root, height=25, width=80)
+        self.text_box = Text(self.root, height=30, width=80)
 
         self.input_box = Entry(self.root, width=30)
 
@@ -45,9 +45,9 @@ class Interface:
         self.text_box.configure(foreground='#ffffff')
         self.text_box.configure(padx=15, pady=5)
 
-        self.text_box.tag_configure('bot_text', font=('Arial', 14),
+        self.text_box.tag_configure('bot_text', font=('Monaco', 13),
                                     spacing1=5)
-        self.text_box.tag_configure('human_text', font=('Arial', 14,
+        self.text_box.tag_configure('human_text', font=('Monaco', 13,
                                     'italic'), spacing1=5)
 
 
