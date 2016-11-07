@@ -45,7 +45,7 @@ class Interface:
         self.text_box.configure(foreground='#ffffff')
         self.text_box.configure(padx=15, pady=5)
 
-        self.text_box.tag_configure('bot_text', font=('Monaco', 13),
+        self.text_box.tag_configure('bot_text', font=('Monaco', 13, 'bold'),
                                     spacing1=5)
         self.text_box.tag_configure('human_text', font=('Monaco', 13,
                                     'italic'), spacing1=5)
