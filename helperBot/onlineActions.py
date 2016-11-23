@@ -14,14 +14,20 @@ class WebAction(Action):
 class Search(WebAction):
     aliases = ["search", "look up", "lookup"]
 
-    @staticmethod
-    def do_action():
-        print("Alright! What would you like me to search?")
-        search_phrase = input("Search: ")
+    def input_action(self, input_phrase):
+        search_phrase = input_phrase
         url = "google.com.tr/search?q=" + search_phrase
 
         WebAction.open_website(url)
 
+        self.action_finished()
+
+    def do_action(self):
+        self.interface.output("Alright! What would you like me to search?")
+        search_phrase = self.queue_input("Search: ")
+
+    def action_sequence(self):
+        self.do_action()  # Waits for input to print ez mon$y
 
 class Pandora(WebAction):
     aliases = ["pandora"]
@@ -55,7 +61,7 @@ class Chess(WebAction):
         WebAction.open_website("chess.com")
 
 
-class Google():
+class Google(WebAction):
     aliases = ["google"]
 
     @staticmethod
@@ -63,7 +69,7 @@ class Google():
         WebAction.open_website("google.com")
 
 
-class Quora():
+class Quora(WebAction):
     aliases = ["quora"]
 
     @staticmethod
@@ -71,7 +77,7 @@ class Quora():
         WebAction.open_website("quora.com")
 
 
-class Duolingo():
+class Duolingo(WebAction):
     aliases = ["duolingo"]
 
     @staticmethod
@@ -79,7 +85,7 @@ class Duolingo():
         WebAction.open_website("duolingo")
 
 
-class Setup():
+class Setup(WebAction):
     aliases = ["setup"]
 
     @staticmethod
@@ -89,7 +95,7 @@ class Setup():
         Pandora.do_action()
 
 
-class SpanishTextbook():
+class SpanishTextbook(WebAction):
     aliases = ["spanish textbook"]
 
     @staticmethod

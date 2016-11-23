@@ -5,4 +5,4 @@ sys.path.append("../helperBot")
 
 import interface
 
-interface.run()
+face = interface.Interface()
